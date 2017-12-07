@@ -1,5 +1,7 @@
 var fibonacci = function(n) {
-  if (n < 3) { return 1; }
+  if ( typeof n != "number" || n < 0) { return NaN; }
+  else if (n == 0) { return 0; }
+  else if (n == 1) { return 1; }
   else { return fibonacci(n-2) + fibonacci(n-1); }
 };
 
@@ -13,3 +15,19 @@ var students = ['Helen', 'Shakil', 'Eric', 'Jennifer Y', 'Jennifer Z', 'Arif', '
 var randomStudent = function() {
   return students[Math.floor(Math.random() * students.length)];
 };
+
+console.log("Testing fibonacci function");
+for (i = -5; i < 10; i++) {
+  console.log("fibonacci(" + i + "): " + fibonacci(i));
+}
+console.log("fibonacci(\"NUMBER\"): " + fibonacci("NUMBER"));
+console.log("fibonacci(true): " + fibonacci(true));
+
+console.log("\nTesting gcd function");
+console.log("gcd(24,36): " + gcd(24, 36));
+console.log("gcd(56,64): " + gcd(56, 64));
+
+console.log("\nTesting randomStudent function");
+for (i = 0; i < 15; i++) {
+  console.log(randomStudent());
+}
